@@ -5,6 +5,8 @@ namespace Azuriom\Plugin\AdvancedBan\Controllers\Admin;
 use Azuriom\Http\Controllers\Controller;
 use Azuriom\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use PDOException;
 
 class SettingController extends Controller
 {
@@ -43,6 +45,25 @@ class SettingController extends Controller
             'route' => ['required', 'string', 'between:1,100'],
             'usePermission' => ['sometimes', 'string'],
         ]);
+
+        config()->set('database.connections.advancedban', [
+            'driver' => 'mysql',
+            'host' => $request->input('host'),
+            'port' => $request->input('port'),
+            'database' => $request->input('database'),
+            'username' => $request->input('username'),
+            'password' => $request->input('password'),
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+        ]);
+
+        try {
+            DB::connection('advancedban')->getPdo();
+        } catch (PDOException) {
+            return redirect()->route('advancedban.admin.settings')->with('error', trans('advancedban::admin.settings.database_information_invalid'));
+        }
 
         Setting::updateSettings([
             'advancedban.host' => $request->input('host'),

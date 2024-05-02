@@ -15,6 +15,8 @@ return [
     'settings' => [
         'title' => 'Paramètres de la page AdvancedBan',
 
+        'database_information_invalid' => 'Les informations de base de données entrées sont invalides. Les paramètres n\'ont pas été sauvegardés.',
+
         'host' => 'Hôte',
         'port' => 'Port',
         'database' => 'Base de données',

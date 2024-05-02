@@ -15,6 +15,8 @@ return [
     'settings' => [
         'title' => 'AdvancedBan page settings',
 
+        'database_information_invalid' => 'The entered database information is invalid. The settings have not been saved.',
+
         'host' => 'Host',
         'port' => 'Port',
         'database' => 'Database',
