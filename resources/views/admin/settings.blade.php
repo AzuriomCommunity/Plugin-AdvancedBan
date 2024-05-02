@@ -51,7 +51,10 @@
 
                 <div class="mb-3">
                     <label class="form-label" for="route">{{ trans('advancedban::admin.settings.route') }}</label>
-                    <input type="text" class="form-control" id="route" name="route" value="{{ $route }}" required="required">
+                    <div class="input-group">
+                        <span class="input-group-text">{{ url('/') }}/</span>
+                        <input type="text" class="form-control" id="route" name="route" value="{{ $route }}" required="required">
+                    </div>
                 </div>
 
                 <div class="mb-3">
