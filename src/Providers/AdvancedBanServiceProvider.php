@@ -2,8 +2,8 @@
 
 namespace Azuriom\Plugin\AdvancedBan\Providers;
 
-use Azuriom\Models\Permission;
 use Azuriom\Extensions\Plugin\BasePluginServiceProvider;
+use Azuriom\Models\Permission;
 
 class AdvancedBanServiceProvider extends BasePluginServiceProvider
 {
@@ -63,10 +63,10 @@ class AdvancedBanServiceProvider extends BasePluginServiceProvider
     {
         return [
             'advancedban' => [
-            	'name' => trans('advancedban::admin.nav.title'),
-            	'icon' => 'bi bi-hammer',
-            	'route' => 'advancedban.admin.settings',
-            	'permission' => 'advancedban.admin'
+                'name' => trans('advancedban::admin.nav.title'),
+                'icon' => 'bi bi-hammer',
+                'route' => 'advancedban.admin.settings',
+                'permission' => 'advancedban.admin',
             ],
         ];
     }

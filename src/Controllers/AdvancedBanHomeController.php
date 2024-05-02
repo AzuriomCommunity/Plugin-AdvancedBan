@@ -5,7 +5,6 @@ namespace Azuriom\Plugin\AdvancedBan\Controllers;
 use Azuriom\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
 class AdvancedBanHomeController extends Controller
