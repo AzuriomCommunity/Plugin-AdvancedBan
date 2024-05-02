@@ -70,7 +70,7 @@ class AdvancedBanHomeController extends Controller
             count($allPunishments),
             $perPage,
             $currentPage,
-            ['path' => LengthAwarePaginator::resolveCurrentPath()]
+            ['path' => LengthAwarePaginator::resolveCurrentPath(), 'query' => $request->query()]
         );
 
         return view('advancedban::index', [
