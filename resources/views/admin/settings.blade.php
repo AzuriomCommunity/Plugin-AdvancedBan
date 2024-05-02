@@ -41,17 +41,23 @@
 
                 <div class="mb-3">
                     <label class="form-label" for="historyTable">{{ trans('advancedban::admin.settings.historyTable') }}</label>
-                    <input type="text" class="form-control" id="historyTable" name="historyTable" value="{{ $historyTable }}" required="required">
+                    <input type="text" class="form-control" id="historyTable" name="historyTable" value="{{ $historyTable }}" placeholder="PunishmentHistory" required="required">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="punishmentTable">{{ trans('advancedban::admin.settings.punishmentTable') }}</label>
-                    <input type="text" class="form-control" id="punishmentTable" name="punishmentTable" value="{{ $punishmentTable }}" required="required">
+                    <input type="text" class="form-control" id="punishmentTable" name="punishmentTable" value="{{ $punishmentTable }}" placeholder="Punishments" required="required">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="route">{{ trans('advancedban::admin.settings.route') }}</label>
                     <input type="text" class="form-control" id="route" name="route" value="{{ $route }}" required="required">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-check-label" for="usePermission">{{ trans('advancedban::admin.settings.usePermission') }}</label>
+                    <input type="checkbox" class="form-check-input" id="usePermission" name="usePermission" @checked($usePermission) aria-describedby="usePermissionHelpBlock">
+                    <p id="usePermissionHelpBlock" class="form-text">{{ trans('advancedban::admin.settings.usePermission_description') }}</p>
                 </div>
 
                 <button type="submit" class="btn btn-primary">

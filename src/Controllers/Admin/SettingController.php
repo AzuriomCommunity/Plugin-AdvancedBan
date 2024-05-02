@@ -25,12 +25,13 @@ class SettingController extends Controller
             'historyTable' => setting('advancedban.historyTable', 'PunishmentHistory'),
             'punishmentTable' => setting('advancedban.punishmentTable', 'Punishments'),
             'route' => setting('advancedban.route', 'advancedban'),
+            'usePermission' => setting('advancedban.usePermission', true),
         ]);
     }
 
     public function save(Request $request)
     {
-        $data = $this->validate($request, [
+        $this->validate($request, [
             'host' => ['required', 'string', 'max:255'],
             'port' => ['required', 'integer', 'between:1,65535'],
             'database' => ['required', 'string', 'max:255'],
@@ -40,6 +41,7 @@ class SettingController extends Controller
             'historyTable' => ['required', 'string', 'between:1,100'],
             'punishmentTable' => ['required', 'string', 'between:1,100'],
             'route' => ['required', 'string', 'between:1,100'],
+            'usePermission' => ['sometimes', 'string'],
         ]);
 
         Setting::updateSettings([
@@ -52,6 +54,7 @@ class SettingController extends Controller
             'advancedban.historyTable' => $request->input('historyTable'),
             'advancedban.punishmentTable' => $request->input('punishmentTable'),
             'advancedban.route' => $request->input('route'),
+            'advancedban.usePermission' => $request->input('usePermission') === 'on',
         ]);
 
         return redirect()->route('advancedban.admin.settings')->with('success', trans('admin.settings.updated'));

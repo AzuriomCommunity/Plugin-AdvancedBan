@@ -24,5 +24,7 @@ return [
         'historyTable' => 'Table de l\'historique',
         'punishmentTable' => 'Table des sanctions',
         'route' => 'Chemin',
+        'usePermission' => 'Utiliser la permission',
+        'usePermission_description' => 'Si ceci est coché, les invités (utilisateurs non authentifiés) ne pourront pas accéder à l\'historique des punitions.',
     ],
 ];
